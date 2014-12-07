@@ -5,7 +5,7 @@
   
   function setBackground(node, layer, content){
     var html = '',
-        items = node.items | 5,
+        items = node.items || 5,
         width = 100 / items,
         content = content ? content : layer == node.xtag.emptyLayer ? emptyStar : fullStar;
     while (items--) html += '<img class="x-rating-item" style="width: ' + width + '%" src="' + content + '"/>';
@@ -13,14 +13,20 @@
   }
   
   function setWidth(node, value){
+    var step = node.step;
+    node.setAttribute('display-value', step ? node.items * ((value / step) / (100 / step)) : value);
     node.xtag.fullLayer.style.width = value + '%';
     node.xtag.fullInner.style.width = (100 / value) * 100 + '%';
   }
   
   xtag.register('x-rating', {
-    content: '<div class="x-rating-empty-layer"></div>' +
-             '<div class="x-rating-full-layer"><div></div></div>' + 
-             '<input type="range" class="x-rating-range" />',
+    content: '<div>' +
+               '<div class="x-rating-layers">' +
+                 '<div class="x-rating-empty-layer"></div>' +
+                 '<div class="x-rating-full-layer"><div></div></div>' + 
+                 '<input type="range" class="x-rating-range" />' +
+               '</div>' +
+             '</div>',
     lifecycle: {
       created: function() {
         this.xtag.range = this.querySelector('.x-rating-range');
@@ -38,7 +44,7 @@
       change: function(e){
         this.value = e.target.value;
         setWidth(this, e.target.value);
-      },
+      }
     },
     accessors: {
       fullBackground: {
@@ -58,6 +64,7 @@
         set: function(){
           setBackground(this, this.xtag.fullInner, this.fullBackground);
           setBackground(this, this.xtag.emptyLayer, this.emptyBackground);
+          if (this.step) this.xtag.range.style.left = '-' + (this.xtag.range.style.paddingRight = this.step / 2 + '%');
         }
       },
       name: {
@@ -66,8 +73,17 @@
       value: {
         attribute: { property: 'range' }
       },
+      value: {
+        attribute: { property: 'range' }
+      },
       step: {
         attribute: { property: 'range' }
+      },
+      disabled: {
+        attribute: {
+          boolean: true,
+          property: 'range'
+        }
       }
     }
   });

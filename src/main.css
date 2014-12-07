@@ -1,24 +1,33 @@
 
 x-rating {
-  position: relative;
-  display: inline-block;
-  text-align: center;
+  display: table;
 }
 
-x-rating > input {
+x-rating > *, x-rating:before, x-rating:after {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.x-rating-layers {
+  position: relative;
+  height: 100%;
+}
+
+.x-rating-range {
   display: block !important;
   position: absolute !important;
   top: 0 !important;
-  left: 0 !important;
+  left: 0;
   width: 100% !important;
   height: 100% !important;
   margin: 0 !important;
-  padding: 0 !important;
+  padding: 0;
   opacity: 0 !important;
   cursor: pointer;
 }
 
-x-rating .x-rating-full-layer, x-rating .x-rating-empty-layer {
+.x-rating-full-layer, .x-rating-empty-layer {
   height: 100%;
   -webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -26,7 +35,7 @@ x-rating .x-rating-full-layer, x-rating .x-rating-empty-layer {
 	box-sizing: border-box;
 }
 
-x-rating .x-rating-full-layer {
+.x-rating-full-layer {
   position: absolute;
   top: 0;
   left: 0;

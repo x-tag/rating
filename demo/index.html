@@ -10,14 +10,19 @@
     <script type="text/javascript" src="x-tag-components.js"></script> 
     <script type="text/javascript" src="../src/main.js"></script>      
 	<style>
-
+    
+    #value_attr:before {
+      content: attr(display-value);
+      min-width: 2em;
+    }
+    
 	</style>
 </head>
 
 <body>
 
-	<x-rating style="width: 75%;" value="0" step="20"></x-rating>
-  <x-rating value="30"></x-rating>
+	<x-rating style="width: 75%;" value="0" step="10"></x-rating>
+  <x-rating step="2" items="4" id="value_attr" value="2"></x-rating>
 
 </body>
 
