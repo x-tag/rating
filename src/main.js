@@ -13,9 +13,10 @@
 
   function setWidth(node, value){
     var step = node.step;
+    var width = Number(value) ? value : 0;
     node.setAttribute('rating', step ? node.items * ((value / step) / (100 / step)) : value);
-    node.xtag.fullLayer.style.width = value + '%';
-    node.xtag.fullInner.style.width = (100 / value) * 100 + '%';
+    node.xtag.fullLayer.style.width = width + '%';
+    node.xtag.fullInner.style.width = (100 / width) * 100 + '%';
   }
 
   xtag.register('x-rating', {
@@ -42,7 +43,6 @@
       },
       change: function(e){
         this.value = e.target.value;
-        setWidth(this, e.target.value);
       },
       contextmenu: function(e){
         e.preventDefault();
@@ -60,7 +60,10 @@
         attribute: { property: 'range' }
       },
       value: {
-        attribute: { property: 'range' }
+        attribute: { property: 'range' },
+        set: function(val){
+          setWidth(this, val);
+        }
       },
       step: {
         attribute: { property: 'range' }
