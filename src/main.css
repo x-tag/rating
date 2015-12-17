@@ -9,12 +9,17 @@ x-rating, x-rating > *, x-rating:before, x-rating:after {
   vertical-align: middle;
 }
 
-x-rating:before, x-rating:after {
+x-rating:before, x-rating:after, x-rating > *, .x-rating-layers {
   -webkit-align-items: center;
   align-items: center;
   -webkit-box-align: center;
   -moz-box-align: center;
   box-align: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  box-pack: center;
 }
 
 x-rating > *, .x-rating-layers {
@@ -23,11 +28,6 @@ x-rating > *, .x-rating-layers {
   -webkit-box-align: stretch;
   -moz-box-align: stretch;
   box-align: stretch;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-box-pack: center;
-  -moz-box-pack: center;
-  box-pack: center;
 }
 
 .x-rating-layers {
@@ -49,7 +49,6 @@ x-rating > *, .x-rating-layers {
 }
 
 .x-rating-layers-cell {
-  height: 100%;
   width: 100%;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -60,7 +59,6 @@ x-rating > *, .x-rating-layers {
 }
 
 .x-rating-full-layer, .x-rating-empty-layer, .x-rating-full-layer > div {
-  height: 100%;
   white-space: nowrap;
   -webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
