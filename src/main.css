@@ -9,12 +9,20 @@ x-rating, x-rating > *, x-rating:before, x-rating:after {
   vertical-align: middle;
 }
 
-x-rating > *, x-rating:before, x-rating:after {
+x-rating:before, x-rating:after {
   -webkit-align-items: center;
   align-items: center;
   -webkit-box-align: center;
   -moz-box-align: center;
   box-align: center;
+}
+
+x-rating > *, .x-rating-layers {
+  -webkit-align-items: stretch;
+  align-items: stretch;
+  -webkit-box-align: stretch;
+  -moz-box-align: stretch;
+  box-align: stretch;
   -webkit-justify-content: center;
   justify-content: center;
   -webkit-box-pack: center;
@@ -71,7 +79,6 @@ x-rating > *, x-rating:before, x-rating:after {
 
 .x-rating-item {
   display: inline-block;
-  min-width: 1em;
 	margin: 0;
   padding: 0;
   vertical-align: middle;
