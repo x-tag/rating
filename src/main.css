@@ -74,7 +74,6 @@ x-rating > *, x-rating:before, x-rating:after {
   min-width: 1em;
 	margin: 0;
   padding: 0;
-  vertical-align: middle;
   background: no-repeat center center;
   background-size: contain;
   -webkit-box-sizing: border-box;
