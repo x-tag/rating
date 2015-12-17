@@ -41,7 +41,6 @@ x-rating > *, x-rating:before, x-rating:after {
 }
 
 .x-rating-layers-cell {
-  height: 100%;
   width: 100%;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -71,7 +70,6 @@ x-rating > *, x-rating:before, x-rating:after {
 
 .x-rating-item {
   display: inline-block;
-  min-width: 1em;
 	margin: 0;
   padding: 0;
   height: 100%;
