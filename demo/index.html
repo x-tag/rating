@@ -20,7 +20,7 @@
       margin: 0 0 1.5em;
     }
 
-    #value_attr:before {
+    #attr_pseudo:before {
       content: attr(rating);
       min-width: 2em;
     }
@@ -32,7 +32,8 @@
 <body>
 
 	<x-rating style="width: 100%; max-width: 250px;" value="0" step="10"></x-rating>
-  <x-rating style="width: 50%; max-width: 200px;" step="2" items="4" id="value_attr" value="2"></x-rating>
+  <x-rating id="attr_pseudo" style="width: 50%; max-width: 200px;" step="2" items="4" value="2"></x-rating>
+  <x-rating id="compact" style="max-width: 2.5em; width: 20%;" value="50" mode="compact"></x-rating>
 
 </body>
 

@@ -1,10 +1,15 @@
 
 x-rating {
-  display: table;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
 }
 
 x-rating > *, x-rating:before, x-rating:after {
-  display: table-cell;
   text-align: center;
   vertical-align: middle;
 }
@@ -80,4 +85,17 @@ x-rating > *, x-rating:before, x-rating:after {
 
 x-rating input[type="range"]::-ms-tooltip {
   display: none;
+}
+
+x-rating[mode="compact"] img:first-child ~ img {
+  display: none;
+}
+
+x-rating[mode="compact"] img:first-child {
+  width: 100% !important;
+}
+
+x-rating[mode="compact"]:before {
+  content: attr(rating);
+  min-width: 2em;
 }
